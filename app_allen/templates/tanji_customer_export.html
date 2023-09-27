@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="row row-deck row-cards">
+    <div class="col-12">
+        <form action="tanji_receive" method="post" class="card">
+            {% csrf_token %}
+            <div class="card-header">
+                <h4 class="card-title">探迹数据导出</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xl-4">
+                        <div class="row">
+                            <div class="col-md-6 col-xl-12">
+                                <div class="mb-3">
+                                    <label class="form-label">话术名称</label>
+                                    <input type="text" class="form-control" name="tanji_huashu" placeholder="械品-招商-1.01">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">版本名称</label>
+                                    <input type="text" class="form-control" name="tanji_huashu_banben" placeholder="第1版">
+                                </div>
+                                <div class="mb-3">
+                                    <div class="form-label">参数配置</div>
+                                    <label class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" checked="" name="tanji_duandian">
+                                        <span class="form-check-label">从上次结束页码开始</span>
+                                    </label>
+                                    <label class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" name="tanji_denglu">
+                                        <span class="form-check-label">登录模式</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-12">
+                                <div class="mb-3">
+                                  <label class="form-label">用户名</label>
+                                  <input class="form-control" name="tanji_username" placeholder="账号">
+                                </div>
+                                <div class="mb-3">
+                                  <label class="form-label">密码</label>
+                                  <input type="password" class="form-control" name="tanji_password" value="password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-end">
+                <div class="d-flex">
+                    <a href="#" class="btn btn-link">待设置功能</a>
+                    <button type="submit" class="btn btn-primary ms-auto">开始导出</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
