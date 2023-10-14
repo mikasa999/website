@@ -1,12 +1,17 @@
 from django.contrib import admin
 from django.urls import path
-from app_allen import views as app_allen_views
+from app_tanji import views as tanji_views
+from app_pom import views as pom_views
 
 urlpatterns = [
-    path('', app_allen_views.index),
-    path('index', app_allen_views.index),
-    path('task', app_allen_views.task),
-    path('test', app_allen_views.test),
-    path('tanji_customer_export', app_allen_views.tanji_customer_export),
-    path('tanji_receive', app_allen_views.tanji_receive),
+    # 首页
+    path('', pom_views.index),
+    # path('index', pom_views.index),
+    # 舆情处理
+    path('pom', pom_views.index),
+    path('pom/task', pom_views.task),
+    path('pom/test', pom_views.test),
+    # 探迹
+    path('tanji', tanji_views.tanji_customer_export),
+    path('tanji/receive', tanji_views.tanji_receive)
 ]
