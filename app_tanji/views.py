@@ -2,9 +2,9 @@ from django.shortcuts import render, HttpResponse
 from django.forms import ModelForm
 from app_tanji import models
 
-def tanji_customer_export(request):
+def tanji_index(request):
     """导出探迹客户的操作页面"""
-    return render(request, 'tanji_customer_export.html')
+    return render(request, 'tanji_index.html')
 
 def tanji_receive(request):
     """探迹任务接收处理"""

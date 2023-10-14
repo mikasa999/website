@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="row row-deck row-cards">
+    <div class="col-12">
+        <form action="task" method="post" class="card">
+            {% csrf_token %}
+            <div class="card-header">
+                <h4 class="card-title">SEM分词助手</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xl-4">
+                        <div class="row">
+                            <div class="col-md-6 col-xl-12">
+                                <div class="mb-3">
+                                    <div class="form-label">扫描平台</div>
+                                    <select class="form-select" name="pom_scan_platform">
+                                        <option value="baidu">百度</option>
+                                        <option value="sogou">搜狗</option>
+                                        <option value="haoso">好搜</option>
+                                        <option value="bing">必应</option>
+                                        <option value="weixin">微信公众号</option>
+                                        <option value="tieba">贴吧</option>
+                                        <option value="weibo">微博</option>
+                                        <option value="zhihu">知乎</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="form-label">检测页数</div>
+                                    <select class="form-select" name="pom_scan_page_num">
+                                        <option value="3">3</option>
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">检索关键词</label>
+                                    <textarea class="form-control" name="pom_scan_keywords" rows="6" placeholder="输入检索关键词，多个关键词用回车换行"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="form-label">参数配置</div>
+                                    <label class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" checked="" name="pom_headless">
+                                        <span class="form-check-label">无头模式</span>
+                                    </label>
+                                    <label class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" checked="" name="pom_stop_load_pic">
+                                        <span class="form-check-label">禁止加载图片</span>
+                                    </label>
+                                    <label class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" name="pom_proxy">
+                                        <span class="form-check-label">使用代理</span>
+                                    </label>
+                                    <label class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" name="pom_ua">
+                                        <span class="form-check-label">动态UA</span>
+                                    </label>
+                                    <label class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" name="pom_login_pattern">
+                                        <span class="form-check-label">登录模式</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-12">
+                                <div class="mb-3">
+                                    <label class="form-label">PROXY API</label>
+                                    <input type="text" class="form-control" name="pom_proxy_api" placeholder="https://...">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">COOKIES</label>
+                                    <input type="text" class="form-control" name="pom_cookies" placeholder="手动写入cookie">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">TOKEN</label>
+                                    <input type="text" class="form-control" name="pom_token" placeholder="手动写入cookie">
+                                </div>
+                                <div class="mb-3">
+                                  <label class="form-label">用户名</label>
+                                  <input class="form-control" name="pom_username" placeholder="账号">
+                                </div>
+                                <div class="mb-3">
+                                  <label class="form-label">密码</label>
+                                  <input type="password" class="form-control" name="pom_password" value="password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-end">
+                <div class="d-flex">
+                    <a href="#" class="btn btn-link">待设置功能</a>
+                    <button type="submit" class="btn btn-primary ms-auto">创建任务</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
