@@ -1,11 +1,11 @@
-{% extends 'layout.html' %}
+{% extends 'layout_fenci_title.html' %}
 {% block content %}
 <div class="row row-deck row-cards">
     <div class="col-12">
         <form action="task" method="post" class="card">
             {% csrf_token %}
             <div class="card-header">
-                <h4 class="card-title">SEM分词助手</h4>
+                <h4 class="card-title">SEM 分词助手</h4>
             </div>
             <div class="card-body">
                 <div class="row">

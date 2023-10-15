@@ -7,7 +7,6 @@ from app_fenci import views as fenci_views
 urlpatterns = [
     # 首页
     path('', fenci_views.fenci_index),
-    path('index', fenci_views.fenci_index),
     # 舆情处理
     path('pom', pom_views.pom_index),
     path('pom/task', pom_views.pom_task),

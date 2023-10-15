@@ -1,8 +1,8 @@
-{% extends 'layout.html' %}
+{% extends 'layout_tanji_title.html' %}
 {% block content %}
 <div class="row row-deck row-cards">
     <div class="col-12">
-        <form action="tanji_receive" method="post" class="card">
+        <form action="tanji/receive" method="post" class="card">
             {% csrf_token %}
             <div class="card-header">
                 <h4 class="card-title">探迹数据导出</h4>

@@ -32,6 +32,6 @@ def tanji_receive(request):
         #     customer = tanji_customer_export()
         #     customer.run()
 
-        return render(request, 'tanji_receive.html')
+        return render(request, 'tanji_receive.html', data)
 
 
