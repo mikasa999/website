@@ -10,7 +10,7 @@
                     MIKASA999
                 </div>
                 <h2 class="page-title">
-                    分词工具
+                    分词助手
                 </h2>
             </div>
             <!-- title 快速按入口按钮 -->
@@ -21,7 +21,7 @@
                       导出结果
                     </a>
                   </span>
-                    <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal"
+                    <a href="#" class="btn btn-outline-primary d-none d-sm-inline-block" data-bs-toggle="modal"
                        data-bs-target="#modal-report">
                         <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
@@ -52,9 +52,45 @@
 <!-- Page body -->
 <div class="page-body">
     <div class="container-xl">
-
-        {% block content %}{% endblock %}
-
+        <div class="row row-deck row-cards">
+            <div class="col-12">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-2">
+                            <a href="/fenci/index" class="card card-link card-link-pop">
+                                <div class="card-body bg-indigo text-indigo-fg">新增关键词</div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-lg-2">
+                            <a href="/fenci/zcg" class="card card-link card-link-pop">
+                                <div class="card-body bg-indigo text-indigo-fg">主词根预设</div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-lg-2">
+                            <a href="/fenci/qxc" class="card card-link card-link-pop">
+                                <div class="card-body bg-indigo text-indigo-fg">清洗词预设</div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-lg-2">
+                            <a href="/fenci/fywc" class="card card-link card-link-pop">
+                                <div class="card-body bg-indigo text-indigo-fg">非业务词根预设</div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-lg-2">
+                            <a href="/fenci/ywc" class="card card-link card-link-pop">
+                                <div class="card-body bg-indigo text-indigo-fg">核心业务词预设</div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-lg-2">
+                            <a href="/fenci/fc" class="card card-link card-link-pop">
+                                <div class="card-body bg-indigo text-indigo-fg">分词预设</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% block content %}{% endblock %}
+        </div>
     </div>
 </div>
 {% endblock %}

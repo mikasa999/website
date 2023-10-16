@@ -129,8 +129,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    "/static/",
+    # 项目的根目录下的static目录
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 # Default primary key field type
