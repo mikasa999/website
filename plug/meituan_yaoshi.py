@@ -18,7 +18,7 @@ with sync_playwright() as playwright:
     # 统计刷新次数
     flush_num = 1
     # 总共获取到的班次
-    work_num = 0
+    work_num = 1
     # 时间列表
     time_list = [
         '17:00-18:00',
@@ -64,16 +64,20 @@ with sync_playwright() as playwright:
                     print(f'*满足要求*')
                     try:
                         element.click()
+                        print('点击“可选”成功')
                     except:
                         print('点击“可选”失败了')
                         continue
                     try:
                         page.click('//span[text()=" 确认选班 "]')
+                        print('点击“确认选班”成功')
                     except:
                         print('点击“确认选班”失败了，本次抢班失败')
                         continue
                     else:
                         print(f'恭喜你抢到了：{right_time}的班次！，目前共获取了：{work_num}个班')
+                        # 这里休眠一下，选班之后可能等一下可能需要js刷新等待加载
+                        time.sleep(random.uniform(1, 2))
                         work_num += 1
                 else:
                     print(f'时间不满足要求，跳过后继续')
