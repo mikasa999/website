@@ -21,9 +21,9 @@ with sync_playwright() as playwright:
     work_num = 1
     # 时间列表
     time_list = [
-        '17:00-18:00',
-        '18:00-19:00',
-        '19:00-20:00',
+        # '17:00-18:00',
+        # '18:00-19:00',
+        # '19:00-20:00',
         '20:00-21:00',
         '21:00-22:00',
         '22:00-23:00',
@@ -44,13 +44,18 @@ with sync_playwright() as playwright:
             elements = page.query_selector_all(xpath_status_ok)
             # print(elements, end="")
             if not elements:
-                raise Exception(f'第{flush_num}次刷新：没有获得数据')
+                raise Exception('>')
         except Exception as e:
-            print(e)
+            # 打印 > 符号来代表刷新1次并且未获取“可选”元素，一行100次
+            if flush_num % 100 == 0:
+                print(e)
+            else:
+                print(e, end="")
             flush_num += 1
             continue
         else:
-            print(f'第{flush_num}次刷新：检测到了可选班次，检测时间是否符合要求')
+            # print('\n')
+            # print('通知：检测到了可选班次', end="")
             for element in elements:
                 # 获取向上三级的td元素-》同辈的第一个td元素》span
 
@@ -59,28 +64,31 @@ with sync_playwright() as playwright:
 
                 # 暂时先关掉这个时间判断，测试成功了再打开
                 right_time = element.query_selector('../../../preceding-sibling::td//span').text_content()
-                print(f'当前可选班次对应的时间为：{right_time}', end="")
+                print(f'通知：检测到可选班次，时间：{right_time}，', end="")
                 if right_time in time_list:
-                    print(f'*满足要求*')
+                    print(f'时间段符合要求！尝试抢班中>>>')
                     try:
                         element.click()
-                        print('点击“可选”成功')
+                        print('点击“可选”按钮成功 -> ', end="")
                     except:
-                        print('点击“可选”失败了')
+                        print('点击“可选”按钮失败了，请检查原因。 -> ', end="")
                         continue
                     try:
                         page.click('//span[text()=" 确认选班 "]')
-                        print('点击“确认选班”成功')
+                        print('点击“确认选班”按钮成功')
                     except:
-                        print('点击“确认选班”失败了，本次抢班失败')
+                        print('点击“确认选班”按钮失败了，请检查原因。')
                         continue
                     else:
-                        print(f'恭喜你抢到了：{right_time}的班次！，目前共获取了：{work_num}个班')
+                        print('----------------------------------------')
+                        print(f'| 恭喜你抢到了指定班次！上班时间：{right_time} |')
+                        print('----------------------------------------')
+                        print(f'目前共获取了：{work_num}个班')
                         # 这里休眠一下，选班之后可能等一下可能需要js刷新等待加载
                         time.sleep(random.uniform(1, 2))
                         work_num += 1
                 else:
-                    print(f'时间不满足要求，跳过后继续')
+                    print(f'时间不满足要求，已自动跳过并继续')
             flush_num += 1
         finally:
             continue
