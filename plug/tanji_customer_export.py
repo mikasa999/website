@@ -141,7 +141,7 @@ class tanji_customer_export():
             tel_longtime = element.query_selector('//td[11]').text_content()
 
             # 把数据插入数据库
-            sql = "insert into app_allen_tanji_customer_export(phone, company, customer,tel_status, tel_result, tel_longtime) values (%s,%s,%s,%s,%s,%s)"
+            sql = "insert into app_tanji_customer_list(phone, company, customer,tel_status, tel_result, tel_longtime) values (%s,%s,%s,%s,%s,%s)"
             values = (phone, company, customer, tel_status, tel_result, tel_longtime)
             try:
                 self.cursor.execute(sql, values)
