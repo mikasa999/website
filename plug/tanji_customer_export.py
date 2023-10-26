@@ -36,7 +36,7 @@ class tanji_customer_export():
     def get_result_filter(self):
         if self.check_name == '有效':
             print('过滤信息选择了除”其他“外的所有选项')
-            self.page.click('//span/div/span[text()="无意向（不要选）"]')
+            self.page.click('//span/div/span[text()="AI推荐"]')
             sleep(random.randint(1, 2))
             self.page.click('//span/div/span[text()="加微信/发资料/面谈"]')
             sleep(random.randint(1, 2))
@@ -60,10 +60,17 @@ class tanji_customer_export():
             print('过滤信息选择了：其他')
             self.page.click('//span/div/span[text()="其他"]')
             sleep(random.randint(1, 2))
+        elif self.check_name == '全部':
+            print('选择了全部信息')
+            sleep(random.randint(1, 2))
+        elif self.check_name == '接通':
+            print('选择了接通的电话')
+            self.page.click('//div/span[text()="接通"]')
+            sleep(random.randint(1, 2))
         else:
             print('未过滤任何信息')
 
-    def get_xp_list(self):
+    def get_xp_list_huashu(self):
         #打开登录页面
         self.page.goto('https://user.tungee.com/home')
         # page.goto('https://www.baidu.com/')
@@ -89,6 +96,44 @@ class tanji_customer_export():
         sleep(random.uniform(1, 2))
         #选择“第1版”
         self.page.click('//li[text()="第1版"]')
+        sleep(random.uniform(1, 2))
+        #点击下面“10条/页”
+        self.page.click('//div[text()="10 条/页"]')
+        sleep(random.uniform(1, 2))
+        #选择50条/页
+        self.page.click('//li[text()="50 条/页"]')
+        sleep(random.uniform(1, 2))
+
+        # 点击外呼结果的选项，进行筛选过滤，减少爬取数量。
+        self.get_result_filter()
+
+
+        #//tbody[@class="ant-table-tbody"]/tr/td[2]
+        #//li[@title="下一页"]
+        #开始获取页面中的内容
+    def get_xp_list_renwu(self):
+        #打开登录页面
+        self.page.goto('https://user.tungee.com/home')
+        # page.goto('https://www.baidu.com/')
+        #这里先扫码登录
+        sleep(self.use_time)
+        #定位到企业中心的“探迹智能呼叫”点击进入机器人页面
+        self.page.click('//span[text()="探迹智能呼叫"]')
+        sleep(random.uniform(1, 2))
+        #点击“通话明细”
+        self.page.click('//span[text()="通话明细"]')
+        sleep(random.uniform(1, 2))
+        #点击“任务查询”
+        self.page.click('//a[text()="任务查询"]')
+        sleep(random.uniform(1, 2))
+        #点击下拉框中的“话术查询”
+        self.page.click('//li[text()="任务查询"]')
+        sleep(random.uniform(1, 2))
+        #点击选择话术的div
+        self.page.click('//*[@id="app-content"]/div/div/div/div/div[1]/table/tbody/tr[1]/td/div/div/div/div[1]')
+        sleep(random.uniform(1, 2))
+        #选择"械品-招商-1.01"的话术
+        self.page.click(f'//li[text()="{self.talk_content}"]')
         sleep(random.uniform(1, 2))
         #点击下面“10条/页”
         self.page.click('//div[text()="10 条/页"]')
@@ -131,6 +176,9 @@ class tanji_customer_export():
         elements = self.page.query_selector_all(xpath)
         # print(f'总共获取元素：{elements.count}')
         # 遍历并获取电话，公司名称等信息
+        if elements == '':
+            print('未加载到信息，这里等待加载30s')
+            sleep(30)
         list_num = 1
         for element in elements:
             phone = element.query_selector('//td[2]').text_content()
@@ -153,7 +201,7 @@ class tanji_customer_export():
 
 
     def run(self):
-        self.get_xp_list()
+        self.get_xp_list_renwu()
         while True:
             print(f'=======当前是第{self.page_num}页==========')
             self.get_page_content()
@@ -166,5 +214,5 @@ class tanji_customer_export():
         self.conn.close()
 
 if __name__ == '__main__':
-    tce = tanji_customer_export(3, '其他', '械品-招商-1.01')
+    tce = tanji_customer_export(3, '全部', '械品-23100101')
     tce.run()
