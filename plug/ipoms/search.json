@@ -1,0 +1,44 @@
+{
+    "sogou": {
+        "search_name": "sogou",
+        "search_url": "https://www.sogou.com",
+        "search_input_meta": "ID",
+        "search_input_element": "query",
+        "search_list_xpath": "//div[@class=\"results\"]/div[not((contains(@id,\"sogou\"))or(contains(@class,\"middle-better-hintBox\")))]//h3/a"
+    },
+    "baidu": {
+        "search_name": "baidu",
+        "search_url": "https://www.baidu.com",
+        "search_input_meta": "ID",
+        "search_input_element": "kw",
+        "search_list_xpath": "//div[@id=\"content_left\"]//div[contains(@class,\"c-container\")]//h3[(contains(@class,\"c-title\"))or(contains(@class,\"t\"))]/a"
+    },
+    "haoso": {
+        "search_name": "haoso",
+        "search_url": "https://www.so.com",
+        "search_input_meta": "ID",
+        "search_input_element": "input",
+        "search_list_xpath": "//ul[@class=\"result\"]/li/h3/a"
+    },
+    "bing": {
+        "search_name": "bing",
+        "search_url": "https://cn.bing.com",
+        "search_input_meta": "ID",
+        "search_input_element": "sb_form_q",
+        "search_list_xpath": "//ol[@id=\"b_results\"]/li[(@class=\"b_algo\")or(@class=\"b_ans b_mop\")]//h2/a"
+    },
+    "weixin": {
+        "search_name": "weixin",
+        "search_url": "https://weixin.sogou.com",
+        "search_input_meta": "ID",
+        "search_input_element": "query",
+        "search_list_xpath": "//div[@class=\"news-box\"]//h3/a"
+    },
+    "tieba": {
+        "search_name": "tieba",
+        "search_url": "https://tieba.baidu.com",
+        "search_input_meta": "ID",
+        "search_input_element": "wd1",
+        "search_list_xpath": "//ul[@id=\"thread_list\"]/li//div[contains(@class,\"threadlist_title\")]/a"
+    }
+}

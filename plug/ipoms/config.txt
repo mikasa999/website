@@ -1,0 +1,23 @@
+#搜索引擎名字
+search_name=baidu
+
+#需要搜索的关键词
+search_keyword=福建座右茗茶叶
+
+#设置总共要爬取的页面总数量
+search_total_page=3
+
+#总开关，现打开这里，才能使用useragent ip代理等
+options=colse
+
+#设置是否需要使用useragent和ip代理，默认不使用
+proxy_ua=open
+
+#设置是否开启无头模式,默认有头模式
+headless=open
+
+#设置selenium禁止加载图片
+disable_images=open
+
+#设置代理ip的api链接，这里默认为空
+proxy_api=http://v2.api.juliangip.com/dynamic/getips?num=1&pt=1&result_type=text&split=2&trade_no=1345411907194745&sign=5c1170033ba9533ac392c2a94eb1c32c
