@@ -21,13 +21,14 @@ with sync_playwright() as playwright:
     work_num = 1
     # 时间列表
     time_list = [
+        # '16:00-17:00',
         # '17:00-18:00',
         # '18:00-19:00',
         # '19:00-20:00',
         '20:00-21:00',
         '21:00-22:00',
         '22:00-23:00',
-        '23:00-24:00',
+        # '23:00-24:00',
     ]
     # 刷新排班
     while True:
@@ -62,9 +63,11 @@ with sync_playwright() as playwright:
                 # xpath_time = f'{element}/../../../preceding-sibling::td//span' #错误示范
                 # xpath_time = element.query_selector('../../../preceding-sibling::td//span') #错误示范
 
-                # 暂时先关掉这个时间判断，测试成功了再打开
+                # 日期判断（日期判断 tr/td/div/div/label:序号 根据序号来判断日期是否符合要求）
+                # ......
+                # 时间判断
                 right_time = element.query_selector('../../../preceding-sibling::td//span').text_content()
-                print(f'通知：检测到可选班次，时间：{right_time}，', end="")
+                print(f'通知：检测到{right_time}的可选班次，', end="")
                 if right_time in time_list:
                     print(f'时间段符合要求！尝试抢班中>>>')
                     try:
@@ -80,12 +83,10 @@ with sync_playwright() as playwright:
                         print('点击“确认选班”按钮失败了，请检查原因。')
                         continue
                     else:
-                        print('----------------------------------------')
-                        print(f'| 恭喜你抢到了指定班次！上班时间：{right_time} |')
-                        print('----------------------------------------')
+                        print(f'抢到了指定班次！上班时间：{right_time}')
                         print(f'目前共获取了：{work_num}个班')
                         # 这里休眠一下，选班之后可能等一下可能需要js刷新等待加载
-                        time.sleep(random.uniform(1, 2))
+                        time.sleep(random.uniform(5, 10))
                         work_num += 1
                 else:
                     print(f'时间不满足要求，已自动跳过并继续')
