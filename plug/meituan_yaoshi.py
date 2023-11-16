@@ -86,7 +86,7 @@ with sync_playwright() as playwright:
                         print(f'抢到了指定班次！上班时间：{right_time}')
                         print(f'目前共获取了：{work_num}个班')
                         # 这里休眠一下，选班之后可能等一下可能需要js刷新等待加载
-                        time.sleep(random.uniform(5, 10))
+                        time.sleep(random.uniform(1, 2))
                         work_num += 1
                 else:
                     print(f'时间不满足要求，已自动跳过并继续')
