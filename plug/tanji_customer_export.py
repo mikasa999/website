@@ -214,5 +214,5 @@ class tanji_customer_export():
         self.conn.close()
 
 if __name__ == '__main__':
-    tce = tanji_customer_export(3, '全部', '械品-23100101')
+    tce = tanji_customer_export(3, '全部', '妆品-11月16日01')
     tce.run()
