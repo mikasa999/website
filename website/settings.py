@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'app_tanji',
     'app_pom',
     'app_fenci',
+    'app_yaoshi',
 ]
 
 MIDDLEWARE = [

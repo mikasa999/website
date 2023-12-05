@@ -3,6 +3,7 @@ from django.urls import path
 from app_tanji import views as tanji_views
 from app_pom import views as pom_views
 from app_fenci import views as fenci_views
+from app_yaoshi import views as yaoshi_views
 
 urlpatterns = [
     # 首页
@@ -21,4 +22,6 @@ urlpatterns = [
     path('fenci/fywc', fenci_views.fenci_fywc),
     path('fenci/ywc', fenci_views.fenci_ywc),
     path('fenci/fc', fenci_views.fenci_fc),
+    #美团药师抢班
+    path('yaoshi/index', yaoshi_views.yaoshi_index),
 ]

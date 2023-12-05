@@ -1,0 +1,40 @@
+{% extends 'layout_yaoshi_title.html' %}
+{% block content %}
+    <div class="col-12">
+        <form action="https://httpbin.org/post" method="post" class="card">
+            <div class="card-header">
+                <h4 class="card-title">增加关键词</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xl-4">
+                        <div class="row">
+                            <div class="col-md-6 col-xl-12">
+                                <div class="mb-3">
+                                    <div class="form-label">选择主词根</div>
+                                    <select class="form-select">
+                                        <option value="1">妇科凝胶</option>
+                                        <option value="2">医用面膜</option>
+                                        <option value="3">修复敷料</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">填写关键词 <span
+                                            class="form-label-description">100/100</span></label>
+                                    <textarea class="form-control" name="example-textarea-input" rows="6"
+                                              placeholder="输入要增加的关键词，或者通过导入excel/csv文件的方式来添加关键词"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-end">
+                <div class="d-flex">
+                    <a href="#" class="btn btn-link">导入文件</a>
+                    <button type="submit" class="btn btn-primary ms-auto">添加</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
