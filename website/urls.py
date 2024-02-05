@@ -4,6 +4,7 @@ from app_tanji import views as tanji_views
 from app_pom import views as pom_views
 from app_fenci import views as fenci_views
 from app_yaoshi import views as yaoshi_views
+from app_crm import views as crm_views
 
 urlpatterns = [
     # 首页
@@ -24,4 +25,6 @@ urlpatterns = [
     path('fenci/fc', fenci_views.fenci_fc),
     #美团药师抢班
     path('yaoshi/index', yaoshi_views.yaoshi_index),
+    #CRM
+    path('crm/index', crm_views.crm_index),
 ]

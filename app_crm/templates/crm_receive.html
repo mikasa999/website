@@ -1,0 +1,43 @@
+{% extends 'layout_tanji_title.html' %}
+{% block content %}
+<div class="row row-cards">
+    <div class="col-12">
+        <div class="card">
+            <div class="table-responsive">
+                <table class="table table-vcenter card-table table-striped">
+                    <thead>
+                    <tr>
+                        <th>话术名称</th>
+                        <th>版本名称</th>
+                        <th>从上次结束页码开始</th>
+                        <th>登录模式</th>
+                        <th>用户名</th>
+                        <th>密码</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ tanji_huashu }}</td>
+                        <td class="text-muted">
+                            {{ tanji_huashu_banben }}
+                        </td>
+                        <td class="text-muted">
+                            {{ tanji_duandian }}
+                        </td>
+                        <td class="text-muted">
+                            {{ tanji_denglu }}
+                        </td>
+                        <td class="text-muted">
+                            {{ tanji_username }}
+                        </td>
+                        <td class="text-muted">
+                            {{ tanji_password }}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

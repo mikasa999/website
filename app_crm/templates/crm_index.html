@@ -1,0 +1,161 @@
+{% extends 'layout_crm_title.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-6">
+                              <select class="form-select">
+                                <option value="1">所有部门</option>
+                                <option value="2">悦熙妍</option>
+                                <option value="3">昕惠普</option>
+                              </select>
+                            </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-6">
+                            <div class="row g-2">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="模糊搜索">
+                                </div>
+                                <div class="col-auto">
+                                    <a href="#" class="btn btn-icon" aria-label="Button">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                             stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+                                            <path d="M21 21l-6 -6"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div id="table-default" class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        <button class="table-sort" data-sort="sort-name">姓名</button>
+                    </th>
+                    <th>
+                        <button class="table-sort" data-sort="sort-city">电话</button>
+                    </th>
+                    <th>
+                        <button class="table-sort" data-sort="sort-type">地域</button>
+                    </th>
+                    <th>
+                        <button class="table-sort" data-sort="sort-type">类型</button>
+                    </th>
+                    <th>
+                        <button class="table-sort" data-sort="sort-score">咨询内容</button>
+                    </th>
+                    <th>
+                        <button class="table-sort" data-sort="sort-date">部门</button>
+                    </th>
+                    <th>
+                        <button class="table-sort" data-sort="sort-quantity">员工</button>
+                    </th>
+                    <th>
+                        <button class="table-sort" data-sort="sort-progress">来源</button>
+                    </th>
+                    <th>
+                        <button class="table-sort" data-sort="sort-progress">添加时间</button>
+                    </th>
+                    <th>
+                        <button class="table-sort" data-sort="sort-progress">分配时间</button>
+                    </th>
+                    <th>
+                        <button class="table-sort" data-sort="sort-progress">首次跟进时间</button>
+                    </th>
+                    <th>
+                        <button class="table-sort" data-sort="sort-progress">有效性</button>
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="table-tbody">
+                <tr>
+                    <td class="sort-name">李白</td>
+                    <td class="sort-city">18702995555</td>
+                    <td class="sort-type">唐山</td>
+                    <td class="sort-type">代理</td>
+                    <td class="sort-score">皮肤，医用修复敷料，代工</td>
+                    <td class="sort-type">悦熙妍</td>
+                    <td class="sort-type">王敬辉</td>
+                    <td class="sort-type">惠普官网</td>
+                    <td class="sort-date" data-date="1628071164">2024/2/5 13:58</td>
+                    <td class="sort-date" data-date="1628071164">2024/2/5 16:18</td>
+                    <td class="sort-date" data-date="1628071164">2024/2/5 17:32</td>
+                    <td class="sort-type">有效</td>
+                </tr>
+                <tr>
+                    <td class="sort-name">李白</td>
+                    <td class="sort-city">18702995555</td>
+                    <td class="sort-type">唐山</td>
+                    <td class="sort-type">代理</td>
+                    <td class="sort-score">皮肤，医用修复敷料，代工</td>
+                    <td class="sort-type">悦熙妍</td>
+                    <td class="sort-type">王敬辉</td>
+                    <td class="sort-type">惠普官网</td>
+                    <td class="sort-date" data-date="1628071164">2024/2/5 13:58</td>
+                    <td class="sort-date" data-date="1628071164">2024/2/5 16:18</td>
+                    <td class="sort-date" data-date="1628071164">2024/2/5 17:32</td>
+                    <td class="sort-type">有效</td>
+                </tr>
+                <tr>
+                    <td class="sort-name">李白</td>
+                    <td class="sort-city">18702995555</td>
+                    <td class="sort-type">唐山</td>
+                    <td class="sort-type">代理</td>
+                    <td class="sort-score">皮肤，医用修复敷料，代工</td>
+                    <td class="sort-type">悦熙妍</td>
+                    <td class="sort-type">王敬辉</td>
+                    <td class="sort-type">惠普官网</td>
+                    <td class="sort-date" data-date="1628071164">2024/2/5 13:58</td>
+                    <td class="sort-date" data-date="1628071164">2024/2/5 16:18</td>
+                    <td class="sort-date" data-date="1628071164">2024/2/5 17:32</td>
+                    <td class="sort-type">有效</td>
+                </tr>
+                <tr>
+                    <td class="sort-name">李白</td>
+                    <td class="sort-city">18702995555</td>
+                    <td class="sort-type">唐山</td>
+                    <td class="sort-type">代理</td>
+                    <td class="sort-score">皮肤，医用修复敷料，代工</td>
+                    <td class="sort-type">悦熙妍</td>
+                    <td class="sort-type">王敬辉</td>
+                    <td class="sort-type">惠普官网</td>
+                    <td class="sort-date" data-date="1628071164">2024/2/5 13:58</td>
+                    <td class="sort-date" data-date="1628071164">2024/2/5 16:18</td>
+                    <td class="sort-date" data-date="1628071164">2024/2/5 17:32</td>
+                    <td class="sort-type">有效</td>
+                </tr>
+                <tr>
+                    <td class="sort-name">李白</td>
+                    <td class="sort-city">18702995555</td>
+                    <td class="sort-type">唐山</td>
+                    <td class="sort-type">代理</td>
+                    <td class="sort-score">皮肤，医用修复敷料，代工</td>
+                    <td class="sort-type">悦熙妍</td>
+                    <td class="sort-type">王敬辉</td>
+                    <td class="sort-type">惠普官网</td>
+                    <td class="sort-date" data-date="1628071164">2024/2/5 13:58</td>
+                    <td class="sort-date" data-date="1628071164">2024/2/5 16:18</td>
+                    <td class="sort-date" data-date="1628071164">2024/2/5 17:32</td>
+                    <td class="sort-type">有效</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
